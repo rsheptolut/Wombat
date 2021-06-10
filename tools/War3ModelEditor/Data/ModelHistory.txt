@@ -1,0 +1,8 @@
+D:\Games\Warcraft3\Gamefiles\Buildings\Human\TownHall\TownHall.mdx
+D:\Games\Warcraft3\Gamefiles\Units\Human\HeroArchMage\HeroArchMage.mdx
+D:\Games\Warcraft3\Gamefiles\Units\Undead\Necromancer\Necromancer.mdx
+D:\Games\Warcraft3\Gamefiles\Units\Human\Arthas\Arthas.mdx
+D:\Games\Warcraft3\Gamefiles\Units\Undead\Acolyte\Acolyte.mdx
+D:\Games\Warcraft3\Gamefiles\Buildings\Human\TownHall\TownHallCastleKeep.blp
+D:\War3\Units\Human\HeroPaladin\HeroPaladin.mdx
+D:\War3\Units\Human\Arthas\Arthas.mdl

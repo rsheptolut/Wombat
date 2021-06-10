@@ -1,0 +1,86 @@
+#version 140
+#define N     100
+#define EPS   0.001
+
+in vec3 in_Vertex;
+in vec3 in_Normal;
+in vec2 in_TexCoord;
+in ivec4 in_BoneIndexes1;
+in ivec4 in_BoneIndexes2;
+out vec2 vTexCoord;
+uniform mat4 in_Bones[N];
+uniform int in_IsAnimated;
+uniform mat4 in_MVP;
+uniform vec3 in_ObjectPos;
+
+vec4 transform(vec4 src, mat4 mat)
+{
+	vec4 transres;
+	transres.x = src.x * mat[0].x + 
+				src.y * mat[1].x + 
+				src.z * mat[2].x + 
+				src.w * mat[3].x;
+	transres.y = src.x * mat[0].y + 
+				src.y * mat[1].y + 
+				src.z * mat[2].y + 
+				src.w * mat[3].y;
+	transres.z = src.x * mat[0].z + 
+				src.y * mat[1].z + 
+				src.z * mat[2].z + 
+				src.w * mat[3].z;
+
+	transres.w = 1;
+
+	return transres;
+}
+
+void TransformBone(int BoneIndex, inout int Counter, inout vec4 SourcePosition, inout vec4 ResultPosition,
+	inout vec4 SourceNormal, inout vec4 ResultNormal)
+{
+	if (BoneIndex >= 0)
+	{
+		ResultPosition = ResultPosition + transform(SourcePosition, in_Bones[BoneIndex]);
+		ResultNormal = ResultNormal + transform(SourcePosition + SourceNormal, in_Bones[BoneIndex]);
+
+		Counter++;
+	}
+}
+
+void TransformBy4Bones(ivec4 BoneIndexes, inout int Counter, inout vec4 SourcePosition, inout vec4 ResultPosition,
+	inout vec4 SourceNormal, inout vec4 ResultNormal)
+{
+	TransformBone(BoneIndexes.x, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+	TransformBone(BoneIndexes.y, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+	TransformBone(BoneIndexes.z, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+	TransformBone(BoneIndexes.w, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+}
+
+void main(void)
+{   
+	vec4 SourcePosition = vec4(in_Vertex, 1);
+	vec4 SourceNormal = vec4(in_Normal, 1);
+	vec4 ResultNormal = vec4(0, 0, 0, 0);
+	vec4 ResultPosition = vec4(0, 0, 0, 0);
+
+	int Counter = 0;
+
+	if (in_IsAnimated > 0)
+	{
+		TransformBy4Bones(in_BoneIndexes1, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+		TransformBy4Bones(in_BoneIndexes2, Counter, SourcePosition, ResultPosition, SourceNormal, ResultNormal);
+	}
+
+	if (Counter > 0)
+	{
+		ResultPosition = ResultPosition / Counter;
+		ResultNormal = ResultNormal / Counter;
+	}
+	else
+	{
+		ResultPosition = SourcePosition;
+		ResultNormal = SourceNormal;
+	}
+
+	vTexCoord = in_TexCoord;
+	gl_Position = in_MVP * (ResultPosition + vec4(in_ObjectPos, 1));
+}

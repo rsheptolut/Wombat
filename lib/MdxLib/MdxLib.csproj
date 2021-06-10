@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{75CA8C85-8AF0-496E-A434-2CAD498312D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MdxLib</RootNamespace>
+    <AssemblyName>MdxLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <DocumentationFile>bin\Release\MdxLib.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Animator\Animatable.cs" />
+    <Compile Include="Animator\Animatable\Float.cs" />
+    <Compile Include="Animator\Animatable\Integer.cs" />
+    <Compile Include="Animator\Animatable\Quaternion.cs" />
+    <Compile Include="Animator\Animatable\Vector2.cs" />
+    <Compile Include="Animator\Animatable\Vector3.cs" />
+    <Compile Include="Animator\Animatable\Vector4.cs" />
+    <Compile Include="Animator\Animator.cs" />
+    <Compile Include="Animator\AnimatorNode.cs" />
+    <Compile Include="Animator\InterpolationType.cs" />
+    <Compile Include="Animator\Time.cs" />
+    <Compile Include="Command\Animator\Clear.cs" />
+    <Compile Include="Command\Animator\Insert.cs" />
+    <Compile Include="Command\Animator\RemoveAt.cs" />
+    <Compile Include="Command\Animator\Set.cs" />
+    <Compile Include="Command\AttachNode.cs" />
+    <Compile Include="Command\AttachObject.cs" />
+    <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\CommandGroup.cs" />
+    <Compile Include="Command\DetachNode.cs" />
+    <Compile Include="Command\DetachObject.cs" />
+    <Compile Include="Command\ObjectContainer\Add.cs" />
+    <Compile Include="Command\ObjectContainer\Clear.cs" />
+    <Compile Include="Command\ObjectContainer\Insert.cs" />
+    <Compile Include="Command\ObjectContainer\RemoveAt.cs" />
+    <Compile Include="Command\ObjectContainer\Set.cs" />
+    <Compile Include="Command\SetAnimatorField.cs" />
+    <Compile Include="Command\SetNodeField.cs" />
+    <Compile Include="Command\SetObjectField.cs" />
+    <Compile Include="Command\SetModelField.cs" />
+    <Compile Include="ModelFormats\Attacher\Attacher.cs" />
+    <Compile Include="ModelFormats\Attacher\AttacherContainer.cs" />
+    <Compile Include="ModelFormats\Attacher\NodeAttacher.cs" />
+    <Compile Include="ModelFormats\Attacher\ObjectAttacher.cs" />
+    <Compile Include="ModelFormats\Mdl.cs" />
+    <Compile Include="ModelFormats\Mdl\Attachment.cs" />
+    <Compile Include="ModelFormats\Mdl\Bone.cs" />
+    <Compile Include="ModelFormats\Mdl\Camera.cs" />
+    <Compile Include="ModelFormats\Mdl\CollisionShape.cs" />
+    <Compile Include="ModelFormats\Mdl\Event.cs" />
+    <Compile Include="ModelFormats\Mdl\Geoset.cs" />
+    <Compile Include="ModelFormats\Mdl\GeosetAnimation.cs" />
+    <Compile Include="ModelFormats\Mdl\GlobalSequence.cs" />
+    <Compile Include="ModelFormats\Mdl\Helper.cs" />
+    <Compile Include="ModelFormats\Mdl\Light.cs" />
+    <Compile Include="ModelFormats\Mdl\Material.cs" />
+    <Compile Include="ModelFormats\Mdl\MetaData.cs" />
+    <Compile Include="ModelFormats\Mdl\Model.cs" />
+    <Compile Include="ModelFormats\Mdl\ModelInfo.cs" />
+    <Compile Include="ModelFormats\Mdl\ModelVersion.cs" />
+    <Compile Include="ModelFormats\Mdl\Node.cs" />
+    <Compile Include="ModelFormats\Mdl\Object.cs" />
+    <Compile Include="ModelFormats\Mdl\ParticleEmitter.cs" />
+    <Compile Include="ModelFormats\Mdl\ParticleEmitter2.cs" />
+    <Compile Include="ModelFormats\Mdl\PivotPoint.cs" />
+    <Compile Include="ModelFormats\Mdl\RibbonEmitter.cs" />
+    <Compile Include="ModelFormats\Mdl\Sequence.cs" />
+    <Compile Include="ModelFormats\Mdl\Texture.cs" />
+    <Compile Include="ModelFormats\Mdl\TextureAnimation.cs" />
+    <Compile Include="ModelFormats\Mdl\Token\Type.cs" />
+    <Compile Include="ModelFormats\Mdl\Unknown.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Color.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Float.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Integer.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Value.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Vector2.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Vector3.cs" />
+    <Compile Include="ModelFormats\Mdl\Value\Vector4.cs" />
+    <Compile Include="ModelFormats\Mdl\_\Condition.cs" />
+    <Compile Include="ModelFormats\Mdl\_\Loader.cs" />
+    <Compile Include="ModelFormats\Mdl\_\Saver.cs" />
+    <Compile Include="ModelFormats\Mdx.cs" />
+    <Compile Include="ModelFormats\Mdx\Attachment.cs" />
+    <Compile Include="ModelFormats\Mdx\Bone.cs" />
+    <Compile Include="ModelFormats\Mdx\Camera.cs" />
+    <Compile Include="ModelFormats\Mdx\CollisionShape.cs" />
+    <Compile Include="ModelFormats\Mdx\Event.cs" />
+    <Compile Include="ModelFormats\Mdx\Geoset.cs" />
+    <Compile Include="ModelFormats\Mdx\GeosetAnimation.cs" />
+    <Compile Include="ModelFormats\Mdx\GlobalSequence.cs" />
+    <Compile Include="ModelFormats\Mdx\Helper.cs" />
+    <Compile Include="ModelFormats\Mdx\Light.cs" />
+    <Compile Include="ModelFormats\Mdx\Material.cs" />
+    <Compile Include="ModelFormats\Mdx\MetaData.cs" />
+    <Compile Include="ModelFormats\Mdx\Model.cs" />
+    <Compile Include="ModelFormats\Mdx\ModelInfo.cs" />
+    <Compile Include="ModelFormats\Mdx\ModelVersion.cs" />
+    <Compile Include="ModelFormats\Mdx\Node.cs" />
+    <Compile Include="ModelFormats\Mdx\Object.cs" />
+    <Compile Include="ModelFormats\Mdx\ParticleEmitter.cs" />
+    <Compile Include="ModelFormats\Mdx\ParticleEmitter2.cs" />
+    <Compile Include="ModelFormats\Mdx\PivotPoint.cs" />
+    <Compile Include="ModelFormats\Mdx\RibbonEmitter.cs" />
+    <Compile Include="ModelFormats\Mdx\Sequence.cs" />
+    <Compile Include="ModelFormats\Mdx\Texture.cs" />
+    <Compile Include="ModelFormats\Mdx\TextureAnimation.cs" />
+    <Compile Include="ModelFormats\Mdx\Unknown.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Float.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Integer.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Value.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Vector2.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Vector3.cs" />
+    <Compile Include="ModelFormats\Mdx\Value\Vector4.cs" />
+    <Compile Include="ModelFormats\Mdx\_\Loader.cs" />
+    <Compile Include="ModelFormats\Mdx\_\Saver.cs" />
+    <Compile Include="ModelFormats\ModelFormat.cs" />
+    <Compile Include="ModelFormats\Xml.cs" />
+    <Compile Include="ModelFormats\Xml\Attachment.cs" />
+    <Compile Include="ModelFormats\Xml\Bone.cs" />
+    <Compile Include="ModelFormats\Xml\Camera.cs" />
+    <Compile Include="ModelFormats\Xml\CollisionShape.cs" />
+    <Compile Include="ModelFormats\Xml\Event.cs" />
+    <Compile Include="ModelFormats\Xml\EventTrack.cs" />
+    <Compile Include="ModelFormats\Xml\Geoset.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetAnimation.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetExtent.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetFace.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetGroup.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetGroupNode.cs" />
+    <Compile Include="ModelFormats\Xml\GeosetVertex.cs" />
+    <Compile Include="ModelFormats\Xml\GlobalSequence.cs" />
+    <Compile Include="ModelFormats\Xml\Helper.cs" />
+    <Compile Include="ModelFormats\Xml\Light.cs" />
+    <Compile Include="ModelFormats\Xml\Material.cs" />
+    <Compile Include="ModelFormats\Xml\MaterialLayer.cs" />
+    <Compile Include="ModelFormats\Xml\Model.cs" />
+    <Compile Include="ModelFormats\Xml\Node.cs" />
+    <Compile Include="ModelFormats\Xml\Object.cs" />
+    <Compile Include="ModelFormats\Xml\ParticleEmitter.cs" />
+    <Compile Include="ModelFormats\Xml\ParticleEmitter2.cs" />
+    <Compile Include="ModelFormats\Xml\RibbonEmitter.cs" />
+    <Compile Include="ModelFormats\Xml\Sequence.cs" />
+    <Compile Include="ModelFormats\Xml\Texture.cs" />
+    <Compile Include="ModelFormats\Xml\TextureAnimation.cs" />
+    <Compile Include="ModelFormats\Xml\Unknown.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Float.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Integer.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Value.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Vector2.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Vector3.cs" />
+    <Compile Include="ModelFormats\Xml\Value\Vector4.cs" />
+    <Compile Include="ModelFormats\Xml\_\Loader.cs" />
+    <Compile Include="ModelFormats\Xml\_\Saver.cs" />
+    <Compile Include="Model\Attachment.cs" />
+    <Compile Include="Model\Bone.cs" />
+    <Compile Include="Model\Camera.cs" />
+    <Compile Include="Model\CollisionShape.cs" />
+    <Compile Include="Model\CollisionShapeType.cs" />
+    <Compile Include="Model\Detacher.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\EventTrack.cs" />
+    <Compile Include="Model\Geoset.cs" />
+    <Compile Include="Model\GeosetAnimation.cs" />
+    <Compile Include="Model\GeosetExtent.cs" />
+    <Compile Include="Model\GeosetFace.cs" />
+    <Compile Include="Model\GeosetGroup.cs" />
+    <Compile Include="Model\GeosetGroupNode.cs" />
+    <Compile Include="Model\GeosetVertex.cs" />
+    <Compile Include="Model\GlobalSequence.cs" />
+    <Compile Include="Model\Helper.cs" />
+    <Compile Include="Model\Light.cs" />
+    <Compile Include="Model\LightType.cs" />
+    <Compile Include="Model\Material.cs" />
+    <Compile Include="Model\MaterialLayer.cs" />
+    <Compile Include="Model\MaterialLayerFilterMode.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Node.cs" />
+    <Compile Include="Model\NodeContainer.cs" />
+    <Compile Include="Model\NodeReference.cs" />
+    <Compile Include="Model\Object.cs" />
+    <Compile Include="Model\ObjectContainer.cs" />
+    <Compile Include="Model\ObjectReference.cs" />
+    <Compile Include="Model\ParticleEmitter.cs" />
+    <Compile Include="Model\ParticleEmitter2.cs" />
+    <Compile Include="Model\ParticleEmitter2FilterMode.cs" />
+    <Compile Include="Model\RibbonEmitter.cs" />
+    <Compile Include="Model\Sequence.cs" />
+    <Compile Include="Model\Texture.cs" />
+    <Compile Include="Model\TextureAnimation.cs" />
+    <Compile Include="Model\Unknown.cs" />
+    <Compile Include="Primitives\Extent.cs" />
+    <Compile Include="Primitives\Interval.cs" />
+    <Compile Include="Primitives\Segment.cs" />
+    <Compile Include="Primitives\Vector2.cs" />
+    <Compile Include="Primitives\Vector3.cs" />
+    <Compile Include="Primitives\Vector4.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="_\Constants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

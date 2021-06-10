@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Texture">
+    <xs:attribute name="Id" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="Path" type="xs:string" use="required" />
+    <xs:attribute name="SpriteSize" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="Cell">
+    <xs:attribute name="Row" type="xs:string" use="required" />
+    <xs:attribute name="Col" type="xs:string" use="required" />
+    <xs:attribute name="Position" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="ModelObject">
+    <xs:attribute name="Model" type="xs:string" use="required" />
+    <xs:attribute name="Position" type="xs:string" use="required" />
+  </xs:complexType>
+  
+  <xs:element name="Map">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Ground" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Textures" minOccurs="1" maxOccurs="1" > 
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Texture" type="Texture" minOccurs="1" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>               
+              <xs:element name="Cells" minOccurs="1" maxOccurs="1" >
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Cell" type="Cell" minOccurs="1" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Objects" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="ModelObject" type="ModelObject" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="Version" type="xs:decimal" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

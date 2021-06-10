@@ -1,0 +1,5 @@
+D:\Projects\Wombat\lib\MdxLib\bin\Debug\MdxLib.dll
+D:\Projects\Wombat\lib\MdxLib\bin\Debug\MdxLib.pdb
+D:\Projects\Wombat\lib\MdxLib\obj\Debug\MdxLib.csproj.CoreCompileInputs.cache
+D:\Projects\Wombat\lib\MdxLib\obj\Debug\MdxLib.dll
+D:\Projects\Wombat\lib\MdxLib\obj\Debug\MdxLib.pdb
